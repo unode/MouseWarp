@@ -9,9 +9,13 @@ At the moment libaosd isn't included in the build process so you need to:
     ./autogen.sh
     ./configure
     make
-    ln -s libaosd.so libaosd/libaosd/libaosd.so.2
+    ln -s libaosd.so libaosd/libaosd.so.2
 
 before trying to compile mousewarp using:
 
     cmake .
     make
+
+Alternative, using nix simply clone the repository and run:
+
+    nix-env -if.
