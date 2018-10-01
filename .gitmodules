@@ -1,0 +1,3 @@
+[submodule "libaosd"]
+	path = libaosd
+	url = https://github.com/atheme-legacy/libaosd
