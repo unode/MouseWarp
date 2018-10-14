@@ -5,7 +5,7 @@ stdenv.mkDerivation rec {
   version = "0.0.1";
 
   src = builtins.filterSource (name: type: !lib.hasPrefix "target" (baseNameOf name) && !lib.hasPrefix "result" (baseNameOf name) && name != ".git") ./.;
-  buildInputs = [autoconf automake cmake pkgconfig cairo pango xlibs.libX11 xorg.libXcomposite];
+  buildInputs = [autoconf automake cmake pkgconfig cairo pcre pango xlibs.libX11 xorg.libpthreadstubs xorg.libXcomposite xorg.libXdmcp];
   propagatedBuildInputs = [cairo pango xlibs.libX11 xorg.libXcomposite];
 
   postPatch = ''
