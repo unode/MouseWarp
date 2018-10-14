@@ -26,9 +26,10 @@
  *  EOF -> terminate warping
  */
  
-#include <stdio.h>
 #include <cairo-xlib.h>
 #include <aosd.h>
+
+#include <stdio.h>
 
 #define DEBUG 1
 #define debug_print(fmt, ...) \
