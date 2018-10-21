@@ -1,21 +1,25 @@
 ## WIP - MouseWarping guidance overlay
 
-### Compiling
+### What
 
-Currently we rely on libaosd to render the overlay.
-At the moment libaosd isn't included in the build process so you need to:
+See the [original
+issue](https://github.com/keyboardio/Kaleidoscope-MouseKeys/issues/30) for
+motivation and *screenshots* and [the followup
+issue](https://github.com/keyboardio/Kaleidoscope/issues/372) for ongoing
+discussion.
 
-    cd libaosd/
-    ./autogen.sh
-    ./configure
+### How
+
+Currently we rely on libaosd which in turn depends on cairo+pango to render the overlay.
+
+Running:
+
     make
-    ln -s libaosd.so libaosd/libaosd.so.2
 
-before trying to compile mousewarp using:
+will call cmake and if everything works out you can launch mousewarp with:
 
-    cmake .
-    make
+    build/mousewarp
 
-Alternative, using nix simply clone the repository and run:
+Alternatively, if you have nix (nix-shell) on your system simply clone the repository and:
 
-    nix-env -if.
+    make run
