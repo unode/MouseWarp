@@ -6,7 +6,7 @@ buildEnv {
     cairo.dev
     gcc
     glibc.dev
-    pango.dev
+    libaosd
     pango.dev
     pcre.dev
     xlibs.libX11.dev

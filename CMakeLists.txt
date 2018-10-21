@@ -14,12 +14,12 @@ find_package(X11 REQUIRED)
 include_directories(${X11_INCLUDE_DIR})
 target_link_libraries(mousewarp ${X11_LIBRARIES})
 
-add_library(aosd SHARED IMPORTED) # or STATIC instead of SHARED
-set_target_properties(aosd PROPERTIES
-  IMPORTED_LOCATION "${CMAKE_SOURCE_DIR}/libaosd/libaosd/libaosd.so"
-  INTERFACE_INCLUDE_DIRECTORIES "${CMAKE_SOURCE_DIR}/libaosd/libaosd"
-)
-target_link_libraries(mousewarp aosd)
+find_package(PkgConfig)
+pkg_check_modules(AOSD REQUIRED libaosd)
+
+target_link_libraries(mousewarp ${AOSD_LIBRARIES})
+target_include_directories(mousewarp PUBLIC ${AOSD_INCLUDE_DIRS})
+target_compile_options(mousewarp PUBLIC ${AOSD_CFLAGS_OTHER})
 
 install(TARGETS mousewarp DESTINATION bin)
 
