@@ -166,14 +166,16 @@ int main(int argc, char* argv[])
   aosd_show(aosd);
 
   // FIXME the do...while isn't necessary as long as we don't destroy the surface/aosd
+  int i = 5;
   do
   {
+    i -= 1;
     aosd_render(aosd);  // Call this when a redraw is necessary
     aosd_loop_for(aosd, 1000);
     // TODO Read new quadrant coordinates from STDIN a'la' Focus plugin in
     // Keyboardio and update the quadrant coordinates to use for next render
-    update_quadrants(&data, 4);
-  } while (aosd_get_is_shown(aosd));
+    update_quadrants(&data, i);
+  } while (aosd_get_is_shown(aosd) && i > 0);
 
   cairo_surface_destroy(data.surf);
   aosd_destroy(aosd);
