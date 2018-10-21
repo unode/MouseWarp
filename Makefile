@@ -1,4 +1,4 @@
-.PHONY: clean devel devel-nix all
+.PHONY: all clean devel devel-nix nix run
 
 all: build/Makefile
 	cd build && make
@@ -14,6 +14,9 @@ devel-nix:
 
 clean:
 	rm -rf build
+
+run:
+	nix-shell --command 'make && ./build/mousewarp'
 
 build/Makefile:
 	mkdir -p build
